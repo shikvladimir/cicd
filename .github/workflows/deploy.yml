@@ -14,8 +14,12 @@ jobs:
       - name: Run a one-line script
         run: echo Hello, world!
           
-      - name: Deploy data
-        run: |
-          ssh root@194.62.19.57
-          cd /home/cicd
-          git pull origin main
+      - name: Run command on remote server
+        uses: D3rHase/ssh-command-action@v0.2.2
+        with:
+          host: ssh root@194.62.19.57
+          user: root
+          private_key: ${{secrets.SSH_PRIVATE_KEY}}
+          command: |
+            cd /home/cicd;
+            git pull origin main;
