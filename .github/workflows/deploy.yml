@@ -17,7 +17,7 @@ jobs:
       - name: Run command on remote server
         uses: D3rHase/ssh-command-action@v0.2.2
         with:
-          host: ssh root@194.62.19.57
+          host: 194.62.19.57
           user: root
           private_key: ${{secrets.SSH_PRIVATE_KEY}}
           command: |
