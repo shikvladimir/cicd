@@ -1,0 +1,16 @@
+name: Deploy to Server
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Запуск команд на сервере
+        run: |
+          ssh root@194.62.19.57 << 'EOF'
+            cd /home/cicd
+            git pull origin main
+          EOF
