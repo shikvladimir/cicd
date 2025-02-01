@@ -19,9 +19,9 @@ jobs:
       - name: Run command on remote server
         uses: D3rHase/ssh-command-action@v0.2.2
         with:
-          ssh_host: "194.62.19.57"
-          ssh_user: "root"
-          ssh_private_key: ${{secrets.SSH_PRIVATE_KEY}}
+          host: "194.62.19.57"
+          user: "root"
+          private_key: ${{secrets.SSH_PRIVATE_KEY}}
           command: |
             cd /home/cicd;
             git pull origin main;
