@@ -9,6 +9,11 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+      - name: Добавление сервера в known_hosts
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -H 194.62.19.57 >> ~/.ssh/known_hosts
+          
       - name: Запуск команд на сервере
         run: |
           ssh root@194.62.19.57 << 'EOF'
