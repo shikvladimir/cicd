@@ -9,14 +9,14 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Добавление сервера в known_hosts
-        run: |
-          mkdir -p ~/.ssh
-          ssh-keyscan -H 194.62.19.57 >> ~/.ssh/known_hosts
+      - uses: actions/checkout@v3
+
+      - name: Run a one-line script
+        run: echo Hello, world!
           
-      - name: Запуск команд на сервере
-        run: |
-          ssh root@194.62.19.57 << 'EOF'
-            cd /home/cicd
-            git pull origin main
-          EOF
+      # - name: Запуск команд на сервере
+      #   run: |
+      #     ssh root@194.62.19.57 << 'EOF'
+      #       cd /home/cicd
+      #       git pull origin main
+      #     EOF
