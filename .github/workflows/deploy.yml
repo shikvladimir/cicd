@@ -11,15 +11,17 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Run a one-line script
-        run: echo Hello, world!
+      - name: Настройка SSH
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
           
       - name: Run command on remote server
         uses: D3rHase/ssh-command-action@v0.2.2
         with:
-          host: "194.62.19.57"
-          user: "root"
-          private_key: ${{secrets.SSH_PRIVATE_KEY}}
+          ssh_host: "194.62.19.57"
+          ssh_user: "root"
+          ssh_private_key: ${{secrets.SSH_PRIVATE_KEY}}
           command: |
             cd /home/cicd;
             git pull origin main;
