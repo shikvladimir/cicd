@@ -14,9 +14,8 @@ jobs:
       - name: Run a one-line script
         run: echo Hello, world!
           
-      # - name: Запуск команд на сервере
-      #   run: |
-      #     ssh root@194.62.19.57 << 'EOF'
-      #       cd /home/cicd
-      #       git pull origin main
-      #     EOF
+      - name: Deploy data
+        run: |
+          ssh root@194.62.19.57
+          cd /home/cicd
+          git pull origin main
