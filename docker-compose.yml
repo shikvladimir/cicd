@@ -1,0 +1,10 @@
+services:
+    nginx:
+        image: nginx:alpine
+        volumes:
+            - ./_docker/nginx/conf.d:/etc/nginx/conf.d
+            - ./index.html:/usr/share/nginx/html/index.html
+        ports:
+            - "8012:80"
+        container_name: nginx_cicd
+        restart: always
