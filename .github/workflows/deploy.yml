@@ -18,8 +18,8 @@ jobs:
         uses: D3rHase/ssh-command-action@v0.2.2
         with:
           host: 194.62.19.57
-          username: root
-          key: ${{secrets.SSH_PRIVATE_KEY}}
+          user: root
+          private_key: ${{secrets.SSH_PRIVATE_KEY}}
           command: |
             cd /home/cicd;
             git pull origin main;
