@@ -14,7 +14,7 @@ jobs:
       - name: Deploy to server
         uses: appleboy/ssh-action@v0.1.10
         with:
-          host: 194.62.19.57
-          username: root
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: "cd /home/cicd && git pull origin main"
