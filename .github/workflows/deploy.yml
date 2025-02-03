@@ -25,5 +25,4 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           passphrase: ''
           script: |
-            cd /home/cicd;
-            git pull origin main;
+            sh -o StrictHostKeyChecking=no username@your_server_ip "cd /home/cicd && git pull origin main"
