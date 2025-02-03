@@ -9,19 +9,12 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Set up SSH
-        uses: webfactory/ssh-agent@v0.5.3
-        with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+      - uses: actions/checkout@v2
           
-      - name: Run command on remote server
-        # uses: appleboy/ssh-action@v0.1.10
-        # with:
-        #   host: "194.62.19.57"
-        #   username: "root"
-        #   key: ${{ secrets.SSH_PRIVATE_KEY }}
-        run: |
-          sh -o StrictHostKeyChecking=no root@194.62.19.57 "cd /home/cicd && git pull origin main"
+      - name: Deploy to server
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: 194.62.19.57
+          username: root
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: "cd /home/cicd && git pull origin main"
