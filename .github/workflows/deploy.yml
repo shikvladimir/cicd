@@ -17,7 +17,7 @@ jobs:
       #     ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
       - name: Debug SSH Key
-        run: echo "${{ secrets.SSH_PRIVATE_KEY }}" | tr -d '\r'
+        run: echo "${{ secrets.SSH_PRIVATE_KEY }}" | cut -c1-10
           
       - name: Run command on remote server
         uses: appleboy/ssh-action@v0.1.10
