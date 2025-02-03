@@ -18,11 +18,10 @@ jobs:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
           
       - name: Run command on remote server
-        uses: appleboy/ssh-action@v0.1.10
-        with:
-          host: "194.62.19.57"
-          username: "root"
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          passphrase: ''
-          script: |
-            sh -o StrictHostKeyChecking=no root@194.62.19.57 "cd /home/cicd && git pull origin main"
+        # uses: appleboy/ssh-action@v0.1.10
+        # with:
+        #   host: "194.62.19.57"
+        #   username: "root"
+        #   key: ${{ secrets.SSH_PRIVATE_KEY }}
+        run: |
+          sh -o StrictHostKeyChecking=no root@194.62.19.57 "cd /home/cicd && git pull origin main"
