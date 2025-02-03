@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - uses: actions/checkout@v3
+      # - uses: actions/checkout@v3
 
       # - name: Настройка SSH
       #   uses: webfactory/ssh-agent@v0.5.3
