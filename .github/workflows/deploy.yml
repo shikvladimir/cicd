@@ -11,10 +11,13 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Настройка SSH
-        uses: webfactory/ssh-agent@v0.5.3
-        with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+      # - name: Настройка SSH
+      #   uses: webfactory/ssh-agent@v0.5.3
+      #   with:
+      #     ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Debug SSH Key
+        run: echo "${{ secrets.SSH_PRIVATE_KEY }}" | tr -d '\r'
           
       - name: Run command on remote server
         uses: appleboy/ssh-action@v0.1.10
