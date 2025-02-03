@@ -17,7 +17,7 @@ jobs:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
           
       - name: Run command on remote server
-        uses: D3rHase/ssh-command-action@v0.2.2
+        uses: appleboy/ssh-action@v0.1.10
         with:
           host: "194.62.19.57"
           user: "root"
