@@ -25,6 +25,7 @@ jobs:
           host: "194.62.19.57"
           username: "root"
           key: ${{secrets.SSH_PRIVATE_KEY}}
+          passphrase: ''
           script: |
             cd /home/cicd;
             git pull origin main;
