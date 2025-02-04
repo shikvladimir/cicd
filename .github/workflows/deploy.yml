@@ -12,31 +12,8 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
-          script: "cd /home/cicd && git pull origin main"
-
-
-
-# name: Deploy to Server
-
-# on:
-#   push:
-#     branches:
-#       - main
-# jobs:
-#   deploy:
-#     runs-on: ubuntu-latest
-    
-#     steps:
-#       - uses: actions/checkout@v4
-#       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
-#       - run: cd /home/cicd && git pull origin main
-      
-      # - name: Deploy to server
-      #   uses: appleboy/ssh-action@v0.1.10
-      #   with:
-      #     debug: true
-      #     host: ${{ secrets.HOST }}
-      #     port: 22
-      #     username: ${{ secrets.USERNAME }}
-      #     key: ${{ secrets.SSH_PRIVATE_KEY }}
-      #     script: "cd /home/cicd && git pull origin main"
+          script: | 
+            cd /home/cicd
+            git pull origin main
+            docker compose restart
+          
