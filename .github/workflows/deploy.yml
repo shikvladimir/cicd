@@ -1,9 +1,5 @@
-name: remote ssh command
-# on: [push]
-on:
-  push:
-    branches:
-      - main
+name: Test CI/CD
+on: [push]
       
 jobs:
   build:
