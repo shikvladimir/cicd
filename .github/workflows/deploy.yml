@@ -1,9 +1,10 @@
-name: remote ssh command
+name: Test CI/CD
 # on: [push]
 on:
   push:
     branches:
       - main
+      - preprod
       
 jobs:
   build:
